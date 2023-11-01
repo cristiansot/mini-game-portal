@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="./assets/css/rps.css">
+</head>
+<body>
+    <div class="bg"></div>
+    <div class="bg bg2"></div>
+    <div class="bg bg3"></div>
+   
+    <header>
+        <div class="header"><img src="./assets/img/rps-header.png" alt=""></div>
+        <nav class="navbar">
+            <div class="hamburger-menu"></div>
+                <input id="menu__toggle" type="checkbox" />
+                <label class="menu__btn" for="menu__toggle">
+                    <span></span>
+                </label>
+
+                <ul class="menu__box">
+                    <li><a id="home">Home</a></li>
+                    <li class="dropdown">
+                    <a href="javascript:void(0)" class="dropbtn">Games</a>
+                    <div class="dropdown-content">
+                        <a id="tictactoe">Tic Tac Toe</a>
+                        <a id="hangman">Hangman</a>
+                        <a id="blackjack">Blackjack</a>
+                        <a id="rps">Rock Paper Scissors</a>
+                    </div>
+                    </li>
+                    <li><a id="contact">Contact</a></li>
+                    <li><a id="leaderboard">Leaderboard</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    
+    <div class="background">
+        <blockquote></blockquote>
+        <blockquote></blockquote>
+        <blockquote></blockquote>
+        <blockquote></blockquote>
+        <blockquote></blockquote>
+        <blockquote></blockquote>
+        <blockquote></blockquote>
+        <blockquote></blockquote>
+        <blockquote></blockquote>
+        <blockquote></blockquote>
+        <blockquote></blockquote>
+        <blockquote></blockquote>
+        <blockquote></blockquote>
+        <blockquote></blockquote>
+        <blockquote></blockquote>
+        <blockquote></blockquote>
+        <blockquote></blockquote>
+        <blockquote></blockquote>
+        <blockquote></blockquote>
+        <blockquote></blockquote>
+        <blockquote></blockquote>
+        <blockquote></blockquote>
+        <blockquote></blockquote>
+        <blockquote></blockquote>
+        <blockquote></blockquote>
+        <blockquote></blockquote>
+        <blockquote></blockquote>
+        <blockquote></blockquote>
+        <blockquote></blockquote>
+        <blockquote></blockquote>
+        <blockquote></blockquote>
+        <blockquote></blockquote>
+    </div>
+
+    <main>
+        <section id="main-section">
+            <div class="instructions">
+                <p>The player starts each round by pressing a button: rock, paper or scissors. Subsequently, the computer will randomly choose rock, paper or scissors. The best of 5 wins. Good luck!!!</p>
+            </div>
+
+            <div class="container">
+                <div class="round">
+                    <p id="rounds-players">Round 1</p>
+                </div>
+                <div class="challenger">
+                    <div id="human"><img src="" alt=""></div> 
+                    <div class="win"></div> 
+                    <div id="computer"><img src="" alt=""></div>
+                </div>
+
+                <div class="names">
+                    <div>Player</div>
+                    <div>Computer</div>
+                </div>
+
+                <div class="score">
+                    <div class="score-human">0</div> 
+                    <div class="score-computer">0</div> 
+                </div>
+
+            </div>
+        </section>
+
+        <section class="mainButtons">
+            <div class="choose"><p>Choose Rock, Paper or Scissors:</p></div>
+            <div class="buttons">
+                <button><img src="./assets/img/rock.svg" alt="rock"></button> 
+                <button><img src="./assets/img/paper.svg" alt="paper"></button> 
+                <button><img src="./assets/img/scissors.svg" alt="scissors"></button> 
+            </div>
+            <button id="goBack">Go Back</button>
+        </section>
+
+        <footer>
+            <button class="play-again">Play again</button>
+        </footer>
+
+    </main>
+    
+</body>
+<script src="./assets/js/rps.js"></script>
+
+</html>

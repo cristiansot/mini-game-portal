@@ -1,0 +1,530 @@
+body {
+    font-family: 'Pixelify Sans', sans-serif;
+    margin:0;
+}
+
+/* HEADER */
+
+header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.header {
+    display: flex;
+    z-index: 0;
+    justify-content: center;
+}
+
+.header img {
+    z-index: 3;
+    width: 35%;
+}
+
+#menu__toggle {
+    display: none;
+}
+
+.navbar {
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    margin-top: 70px;
+}
+
+h1 {
+    color: #fcee21;
+    font-size: 40px;
+    text-align: center;
+    margin-top: -20px;
+    margin-bottom: -30px;
+}
+
+h2 {
+    color: white;
+}
+
+p {
+    text-align: center;
+    font-size: 20px;
+    padding: 16px;
+    margin-inline: 200px;
+    color: white;
+}
+
+/* DROPDOWN MENU */
+
+ul {
+    display: flex;
+    justify-content: center;
+    width: 62%;
+    list-style-type: none;
+    margin-top: -50px;
+    padding: 0;
+    background-color: #00000095;
+    border-radius: 20px;
+}
+  
+li {
+    font-size: 25px;
+}
+
+/* Color text */
+li a, .dropbtn {
+    display: inline-block;
+    color: white;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+  
+li a:hover, .dropdown:hover .dropbtn {
+    background-color: rgba(250,35,122,1);
+}
+  
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: rgba(250,35,122,1);
+    min-width: 140px;
+    z-index: 1;
+}
+  
+.dropdown-content a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    text-align: left;
+}
+  
+.dropdown-content a:hover {background-color:  rgba(62,0,77,1);}
+  
+.dropdown:hover .dropdown-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.dropbtn {
+    color: #fcee21 !important;
+}
+
+/* Finish dropdown menu */
+
+#contentMessage {
+    margin-top: -50px;
+}
+
+#tictactoe {
+    color: #fcee21;
+}
+
+.choose {
+    display: flex;
+    justify-content: center;
+    margin-top: -80px;
+}
+
+#main-section {
+    margin-top: -30px;
+}
+
+#mainContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    column-gap: 50px;
+    margin-top: 100px;
+}
+
+.selectorButtons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: -20px;
+    margin-bottom: 40px;
+}
+
+#selector {
+    margin-top: 80px;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+}
+
+/* BUTTONS */
+
+button {
+    font-size: 22px;
+    width: 160px;
+    height: 40px;
+    margin: 12px;
+    background-color: #fcee21;
+    border-radius: 20px;
+    border-color: black;
+    border-width: 2px;
+    font-family: 'Pixelify Sans', sans-serif;  
+}
+
+button:hover {
+    color: white;
+    background-color: rgba(250,35,122,1)
+}
+
+.simbolBtn {
+    display: flex;
+    flex-flow: row wrap;   
+    justify-content: center;
+    margin-top: -30px;
+}
+
+.simbolBtn:hover {
+    color: transparent;
+    background-color: transparent;
+}
+
+.simbolBtn button {
+    border: none;
+    background-color: transparent;
+    margin: 20px;
+    margin-inline: -35px;
+    margin-bottom: 40px;
+}
+
+.simbolBtn button img {
+    width: 40%;
+}
+
+#goBack {
+    position: relative;
+    font-family: 'Pixelify Sans', sans-serif;
+    font-size: 22px;
+    width: 160px;
+    height: 40px;
+    border-radius: 20px;
+    color: white;
+    background-color: rgba(250,35,122,1);
+    border-color: rgba(0,0,58,1);
+    border-width: 2px;
+    border-style: solid;
+}   
+
+#goBack:hover {
+    background-color: #fcee21;
+    color: black;
+}
+
+/* HASH DESING --- MAIN SECTION */
+
+.instructions {
+    margin-top: -20px;
+    margin-bottom: 70px;
+}
+
+.cell {
+    width: 100px;
+    height: 100px;
+    border: 1px solid;
+}
+
+#gameContainer {
+    text-align: center;
+    margin-top: 16px;
+    z-index: 1;
+}
+
+#cellContainer {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 100px 100px 100px;
+    grid-template-rows: 100px 100px 100px;  
+    row-gap: 50px;
+    column-gap: 50px;
+    width: 350px;
+    margin: auto;
+}
+
+#cellContainer div img {
+    /* width: 100%; */
+    z-index: 3;
+}
+
+/* Image that appear when it's finish the game ---> line */
+.symbol-horizontal {
+    display: flex;
+    position: absolute;
+    z-index: 4;
+    justify-content: center;
+    margin-top: -60px;
+    margin-left: -50px;
+}
+
+.symbol-vertical {
+    display: flex;
+    position: absolute;
+    z-index: 4;
+    justify-content: center;
+    margin-top: -130px;
+    margin-left: 30px;
+}
+
+.symbol-diagonal1 {
+    display: flex;
+    position: absolute;
+    z-index: 4;
+    justify-content: center;
+    margin-top: -100px;
+    margin-left: -30px;
+  
+}
+
+.symbol-diagonal2 {
+    display: flex;
+    position: absolute;
+    z-index: 4;
+    justify-content: center;
+    margin-top: -30px;
+    margin-left: -20px;
+  
+}
+
+#cellContainer div {
+    border: none;
+}
+
+.hash {
+    position: relative;
+    z-index: -1;
+    display: flex;
+    justify-content: center;
+    margin-top: -456px;
+    margin-left: 16px;
+}
+
+/* BACKGROUND ANIMATION --> I took this animation from https://alvarotrigo.com/blog/animated-backgrounds-css */ 
+
+.bg {
+    animation:slide 3s ease-in-out infinite alternate;
+    background-image: linear-gradient(-60deg, rgba(250,35,122,1) 50%, #3a3a3a 50%);
+    bottom:0;
+    left:-50%;
+    opacity:.5;
+    position:fixed;
+    right:-50%;
+    top:0;
+    z-index:-1;
+}
+  
+.bg2 {
+    animation-direction:alternate-reverse;
+    animation-duration:4s;
+}
+  
+.bg3 {
+    animation-duration:5s;
+}
+  
+.content {
+    background-color:rgba(255,255,255,.8);
+    border-radius:.25em;
+    box-shadow:0 0 .25em rgba(0,0,0,.25);
+    box-sizing:border-box;
+    left:50%;
+    padding:10vmin;
+    position:fixed;
+    text-align:center;
+    top:50%;
+    transform:translate(-50%, -50%);
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+}
+  
+  @keyframes slide {
+    0% {
+      transform:translateX(-25%);
+    }
+    100% {
+      transform:translateX(25%);
+    }
+  }
+
+/* RESPONSIVE CODE */
+
+@media screen and (max-width: 768px) { 
+
+    body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    main {
+        margin-top: -100px;
+    }
+
+    .header img {    
+        width: 65%;
+    }
+
+    #main-section {
+        display: flex;
+        align-items: center;
+        width: 100%;
+    }
+    
+    #mainContainer {
+        margin-top: 90px;
+    }
+
+    .instructions {
+        display: flex;
+        width: 400px;
+        justify-content: center;
+        margin-top: 60px;
+        margin-inline: 0;
+    }
+
+    .instructions p {
+        width: 80%;
+        padding: 0;
+        margin: 0;
+    }
+
+    #cellContainer {
+        display: grid;
+        justify-content: center;
+        grid-template-columns: 70px 70px 70px;
+        grid-template-rows: 70px 70px 70px;  
+        row-gap: 20px;
+        column-gap: 20px;
+        width: 300px;
+        margin-top: -50px;
+    }
+
+    .hash img {
+        width: 260px;
+        margin-top: 180px;
+        margin-left: 10px;
+    }
+
+    .symbol-img {
+        width: 60%;
+    }
+
+    .symbol-horizontal {
+        width: 80%;
+    } 
+    
+    .symbol-vertical {
+        width: 7%;
+    }
+
+    .symbol-diagonal1 {
+        width: 80%;
+        margin-top: -59px;
+        margin-left: 10px;
+    }
+
+    .symbol-diagonal2 {
+        width: 80%;
+        margin-top: -75px;
+    } 
+
+    .selectorButtons {
+        margin-top: -20px;
+    }
+
+    h2 {
+        margin-top: 20px;
+    }
+
+    p {
+        font-size: 16px;
+    }
+
+    footer {
+        margin-bottom: 20px;
+    }
+
+/* HAMBURGER MENU */
+
+/* I pick up this code from https://codepen.io/alvarotrigo/pen/yLzaPVJ */
+
+#menu__toggle {
+    opacity: 0;
+  }
+  #menu__toggle:checked + .menu__btn > span {
+    transform: rotate(45deg);
+  }
+  #menu__toggle:checked + .menu__btn > span::before {
+    top: 0;
+    transform: rotate(0deg);
+  }
+  #menu__toggle:checked + .menu__btn > span::after {
+    top: 0;
+    transform: rotate(90deg);
+  }
+  #menu__toggle:checked ~ .menu__box {
+    left: 0 !important;
+  }
+  .menu__btn {
+    position: fixed;
+    top: 30px;
+    left: 20px;
+    width: 26px;
+    height: 26px;
+    cursor: pointer;
+    z-index: 1;
+  }
+  .menu__btn > span,
+  .menu__btn > span::before,
+  .menu__btn > span::after {
+    display: block;
+    position: absolute; 
+    width: 100%;
+    height: 2px;
+    background-color: rgba(250,35,122,1);
+    transition-duration: .25s;
+  }
+  .menu__btn > span::before {
+    content: '';
+    top: -8px;
+  }
+  .menu__btn > span::after {
+    content: '';
+    top: 8px;
+  }
+  .menu__box {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 281px;
+    height: 100%;
+    padding: 100px 0;
+    list-style: none;
+    background-color: rgb(62 0 77 / 90%);
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, .4);
+    transition-duration: .25s;
+  }
+  .menu__item {
+    display: block;
+    padding: 12px 24px;
+    color: #333;
+    font-size: 20px;
+    font-weight: 600;
+    text-decoration: none;
+    transition-duration: .25s;
+  }
+  .menu__item:hover {
+    background-color: #CFD8DC;
+  }
+    
+}

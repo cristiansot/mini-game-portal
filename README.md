@@ -4,9 +4,6 @@
 
 Team Collaborators:
 
-    Waqas Shahid
-    Shamima Nasrin Khan
-    Ksenia Isakov
     Cristian Soto / Developed: index.html - rps.html - tiactactoe.html
 
 Project:

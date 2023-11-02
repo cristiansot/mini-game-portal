@@ -43,48 +43,30 @@ hangmanCard.addEventListener("click", function () {
 const form = document.getElementById('form');
 const username = document.getElementById('username');
 const email = document.getElementById('email');
+const submitBtn = document.getElementById('submitBtn');
+const finalMsg = document.getElementById('finalMsg');
 
-form.addEventListener('submit', e => {
-    e.preventDefault();
-    validateInputs();
-    form.style.display = "none";
-    username.style.display = "none";
-    email.style.display = "none";
-    const message = document.createElement('p');
-    message.textContent = `Hi ${username.value}, thanks for contacting us. We will respond to your email soon.`;
-    form.parentNode.insertBefore(message, form.nextSibling);
+submitBtn.addEventListener("click", function () {
+    const usernameValue = username.value.trim();
+    const emailValue = email.value.trim();
+
+    if (usernameValue === '') {
+        finalMsg.textContent = (username, 'Name is required');
+    } else if (isNaN(usernameValue) === false) {
+        finalMsg.textContent = (username, 'Name cannot be a number');
+    } else {
+        form.style.display = "none";
+        username.style.display = "none";
+        email.style.display = "none";
+        finalMsg.textContent = `Hi ${usernameValue}, thanks for contacting us. We will respond to your email soon.`;
+        form.parentNode.insertBefore(finalMsg, form.nextSibling);
+        // Clear form inputs
+        username.value = '';
+        email.value = '';
+    }
 });
 
 const isValidEmail = email => {
     const re = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
     return re.test(email.toLowerCase());
-};
-
-const validateInputs = () => {
-    const usernameValue = username.value.trim();
-    const emailValue = email.value.trim();
-    if (usernameValue === '') {
-        setError(username, 'Name is required');
-    } else {
-        setSuccess(username);
-    }
-    if (emailValue === '') {
-        setError(email, 'Email is required');
-    } else if (!isValidEmail(emailValue)) {
-        setError(email, 'Provide a valid email address');
-    } else {
-        setSuccess(email);
-    }
-};
-
-const setError = (element, message) => {
-    element.classList.add('error');
-    const errorElement = element.nextElementSibling;
-    errorElement.textContent = message;
-};
-
-const setSuccess = (element) => {
-    element.classList.remove('error');
-    const errorElement = element.nextElementSibling;
-    errorElement.textContent = '';
 };

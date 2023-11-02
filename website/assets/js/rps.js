@@ -29,8 +29,12 @@ home.addEventListener("click", function () {
     location.href = "index.html" ;
 });
 
-
 /* GAME */
+/* The code block is adding an event listener to the `DOMContentLoaded` event, which is fired when the
+initial HTML document has been completely loaded and parsed. Inside the event listener function, it
+initializes variables and selects elements from the DOM using various methods such as
+`querySelector`, `getElementById`, and `querySelectorAll`. These variables and elements will be used
+in the game logic that follows. */
 document.addEventListener("DOMContentLoaded", function () {
     const buttons = document.querySelectorAll(".buttons button");
     const humanDiv = document.getElementById("human");
@@ -44,9 +48,9 @@ document.addEventListener("DOMContentLoaded", function () {
     let roundsLeft = 5;
     let userScore = 0;
     let computerScoreValue = 0;
-    let currentRound = 0; // Comenzamos en 0 para que la primera pantalla muestre "Round 0"
+    let currentRound = 0; 
 
-    // Hidden "Play Again" button when start the match
+/* This code Hidden "Play Again" button when start the match */
     playAgainButton.style.display = "none";
 
     function updateRoundDisplay() { // 
@@ -57,6 +61,8 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
+/* The code block is adding a click event listener to each button in the `buttons` array. When a button
+is clicked, the function inside the event listener is executed. */
     buttons.forEach((button) => {
         button.addEventListener("click", function () {
             if (roundsLeft > 0) {
@@ -86,22 +92,29 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
+  /* The code is adding an event listener to the `playAgainButton` element. When the button is clicked,
+  the function inside the event listener (`resetGame()`) is executed. This function is responsible
+  for resetting the game by resetting the variables and elements to their initial values. */
     playAgainButton.addEventListener("click", function () { // restart Play again button 
         resetGame();
     });
 
+/* The computer choose a random number */
     function getComputerChoice() { // Random computer choice
         const choices = ["rock", "paper", "scissors"];
         const randomIndex = Math.floor(Math.random() * choices.length);
         return choices[randomIndex];
     }
 
+
+/* The function determines the winner between a player and a computer based on their choices of rock,
+ paper, or scissors. */
     function determineWinner(playerChoice, computerChoice) { // Winer function 
         if (playerChoice === computerChoice) {
             return "Tie";
         } else if (
-            (playerChoice === "rock" && computerChoice === "scissors") ||
-            (playerChoice === "paper" && computerChoice === "rock") ||
+            (playerChoice === "rock" && computerChoice === "scissors") || 
+            (playerChoice === "paper" && computerChoice === "rock") || 
             (playerChoice === "scissors" && computerChoice === "paper")
         ) {
             return "Player";
@@ -127,6 +140,7 @@ document.addEventListener("DOMContentLoaded", function () {
         playAgainButton.style.display = "block"; // Show "Play Again" button when finish the game 
     }
 
+/* This funtion reset the game and clear the screen*/
     function resetGame() {
         roundsLeft = 5;
         userScore = 0;

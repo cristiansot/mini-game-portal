@@ -29,7 +29,9 @@ home.addEventListener("click", function () {
     location.href = "index.html";
 });
 
-/* GAME CODE */
+/* The code is adding an event listener to the `DOMContentLoaded` event, which is fired when the
+initial HTML document has been completely loaded and parsed. Inside the event listener function, it
+initializes variables for the Tic Tac Toe game. */
 document.addEventListener('DOMContentLoaded', function () {
 const cells = document.querySelectorAll('.cell');
 const playAgainButton = document.getElementById('play-again');
@@ -40,17 +42,24 @@ let computer = ''; // Computer's symbol
 let running = false;
 let options = Array(9).fill(' ');
 
+/* The `winningCombos` array is storing all the possible winning combinations in a Tic Tac Toe game.
+Each sub-array represents a winning combination, where the numbers represent the indices of the
+cells on the game board. */
 const winningCombos = [
     [0, 1, 2], [3, 4, 5], [6, 7, 8], // Rows
     [0, 3, 6], [1, 4, 7], [2, 5, 8], // Columns
     [0, 4, 8], [2, 4, 6] // Diagonals
 ];
 
+
+/* The function returns the opposite choice of the player's choice. The player's choice of either 'X' or 'O'.
+'O' if the playerChoice is 'X', and 'X' if the playerChoice is anything other than 'X' */
 function getComputerChoice(playerChoice) {
     return playerChoice === 'X' ? 'O' : 'X';
 }
 
-// Function get random index
+ /* The getRandomCellIndex function returns a random index of an empty cell in an array.
+ @returns the index of a randomly selected empty cell from the "options" array */
 function getRandomCellIndex() {
     const emptyCells = options.map((value, index) => value === ' ' ? index : -1).filter(index => index !== -1);
     if (emptyCells.length === 0) return -1; // No cells
@@ -78,7 +87,10 @@ function updateCell(cellIndex) {
     currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
 }
 
-// Function to check if there's a winner
+
+/* The function `checkWinner` checks if there is a winner in a tic-tac-toe game and displays the
+ * winning message and image if there is a winner, or a tie message if there is no winner.
+ * @returns nothing (undefined) */
 function checkWinner() {
     for (const combo of winningCombos) {
         const [a, b, c] = combo;
@@ -130,13 +142,21 @@ function checkWinner() {
             return ;
         }
     }
+    /* The above code is checking if every element in the `options` array is not equal to a space
+    character (' '). If this condition is true, it sets the `running` variable to false and updates
+    the text content of the `winMessage` element to "It's a tie!". */
     if (options.every(option => option !== ' ')) {
         running = false;
         winMessage.textContent = "It's a tie!"; 
     }
 }
 
-    // Function show the combo winner
+
+
+/* The function `showWinImageHorizontal` loads a horizontal image onto specified cells in a game board.
+The `index` parameter is an array that contains the indices of the cells where the image should be displayed horizontally.
+The `imagePath` parameter is a string that represents the path to the image file that you want to load. It should be a valid
+file path that points to the image you want to display */
     function showWinImageHorizontal(index, imagePath) { // load horizontal image 
         for (const cellIndex of index) {
             const cell = cells[cellIndex];
@@ -148,6 +168,8 @@ function checkWinner() {
         }
     }
 
+ 
+/* The function `showWinImageVertical` loads a vertical image into specified cells.*/
     function showWinImageVertical(index, imagePath) {// load vertical image 
         for (const cellIndex of index) {
             const cell = cells[cellIndex];
@@ -159,6 +181,9 @@ function checkWinner() {
         }
     }
 
+
+/* The function `showWinImageDiagonal1` loads a diagonal image onto specific cells in a game board. The `index` parameter is an array that contains the indices of the cells where the
+The `imagePath` parameter is a string that represents the file path or URL of the image that you want to load */
     function showWinImageDiagonal1(index, imagePath) { // load diagonal image 
         for (const cellIndex of index) {
             const cell = cells[cellIndex];
@@ -170,6 +195,10 @@ function checkWinner() {
         }
     }
 
+  
+/* The function `showWinImageDiagonal2` loads a diagonal image onto specific cells in a game board.
+The `index` parameter is an array that contains the indices of the cells where the diagonal image should be displayed.
+The `imagePath` parameter is a string that represents the file path or URL of the image that you want to load */
     function showWinImageDiagonal2(index, imagePath) { // load diagonal image 
         for (const cellIndex of index) {
             const cell = cells[cellIndex];
@@ -181,7 +210,12 @@ function checkWinner() {
         }
     }
 
-    // Event listener update the cells
+
+/* The code is adding an event listener to each cell in the game board. When a cell is clicked, the
+function inside the event listener is executed. This function calls the `updateCell` function,
+passing the index of the clicked cell as an argument, and then calls the `computerMove` function.
+This allows the player to make a move by clicking on a cell, and then triggers the computer's
+move. */
     cells.forEach((cell, index) => {
         cell.addEventListener('click', function () {
             updateCell(index);
@@ -189,7 +223,8 @@ function checkWinner() {
         });
     });
 
-    // Event listener for the "Play Again" button
+/* The code is adding an event listener to the "Play Again" button. When the button is clicked, the
+function inside the event listener is executed. */
     playAgainButton.addEventListener('click', function () {
         currentPlayer = ''; // Reset the player's choice
         running = false;
@@ -202,7 +237,9 @@ function checkWinner() {
         computerMove();
     });
 
-    // Function computer movements
+
+/* The function `computerMove` checks if the game is running and if it is the computer's turn, and
+if so, selects a random cell index and updates the cell after a delay of 300 milliseconds */
     function computerMove() {
         if (running && currentPlayer === 'O' || currentPlayer === 'X') {
             const cellIndex = getRandomCellIndex();
@@ -227,6 +264,8 @@ function checkWinner() {
         }
     });
 
+  /* This code is adding an event listener to the element with the id "symbol-x". When this element is
+  clicked, the function inside the event listener is executed. */
     document.getElementById("symbol-x").addEventListener('click', function () { // If the player select "X", the computer start the game ussing "O"
         console.log("WORKS")
         if (!currentPlayer) {

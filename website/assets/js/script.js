@@ -52,6 +52,9 @@ const isValidEmail = email => {
     return re.test(email.toLowerCase());
 };
 
+/* The code block is an event listener that is triggered when the submit button (`submitBtn`) is
+clicked. It prevents the default behavior of submitting the form and changing the page by calling
+`event.preventDefault()`. */
 submitBtn.addEventListener("click", function (event) {
     event.preventDefault(); // Avoid submitting the form and changing the page
 

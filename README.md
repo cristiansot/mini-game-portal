@@ -1,5 +1,7 @@
 
-### Team Collaborators:
+### Please see the commits.png, I worked alone and I changed the path of the main project at mi github 
+
+### Team Collaborator:
 
     Cristian Soto / Developed: index.html - rps.html - tiactactoe.html
 

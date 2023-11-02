@@ -29,7 +29,8 @@ home.addEventListener("click", function () {
     location.href = "index.html" ;
 });
 
-/* GAME */
+/* Aleem helps me in to fix the code, he taught me a lot */
+
 /* The code block is adding an event listener to the `DOMContentLoaded` event, which is fired when the
 initial HTML document has been completely loaded and parsed. Inside the event listener function, it
 initializes variables and selects elements from the DOM using various methods such as
@@ -123,6 +124,8 @@ is clicked, the function inside the event listener is executed. */
         }
     }
 
+/* The function "endGame" determines the winner of the game and displays a corresponding message, hides
+the images of the human and computer choices, and shows a "Play Again" button */
     function endGame() { // Hidden images
         if (userScore > computerScoreValue) {
             winMessage.textContent = "Player wins the game!";

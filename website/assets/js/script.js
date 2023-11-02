@@ -47,26 +47,25 @@ const submitBtn = document.getElementById('submitBtn');
 const finalMsg = document.getElementById('finalMsg');
 const failMsg = document.getElementById('failMsg')
 
-const isValidEmail = email => {
-    const re = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-    return re.test(email.toLowerCase());
-};
-
 /* The code block is an event listener that is triggered when the submit button (`submitBtn`) is
 clicked. It prevents the default behavior of submitting the form and changing the page by calling
 `event.preventDefault()`. */
 submitBtn.addEventListener("click", function (event) {
     event.preventDefault(); // Avoid submitting the form and changing the page
 
+/* The code block is handling form validation and submission. ---> Aleem help me a lot for develop this code */
     const usernameValue = usernameInput.value.trim();
-    const emailValue = emailInput.value.trim();
+    const email = emailInput.value.trim();
+    const re = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+    const isEmailValid = re.test(email.toLowerCase());
+
 
     if (usernameValue === '') {
         failMsg.textContent = 'Name is required';
     } else if (!isNaN(usernameValue)) {
         failMsg.textContent =  'Name is not valid';
-    } else if (isValidEmail === '') { 
-        failMsg.textContent = 'e-mail address required';
+    } else if (!isEmailValid) { 
+        failMsg.textContent = 'e-mail is not valid';
     } else {
         form.style.display = "none";
         usernameInput.style.display = "none";

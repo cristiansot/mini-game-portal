@@ -87,7 +87,6 @@ function updateCell(cellIndex) {
     currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
 }
 
-
 /* The function `checkWinner` checks if there is a winner in a tic-tac-toe game and displays the
  * winning message and image if there is a winner, or a tie message if there is no winner.
  * @returns nothing (undefined) */
@@ -151,8 +150,6 @@ function checkWinner() {
     }
 }
 
-
-
 /* The function `showWinImageHorizontal` loads a horizontal image onto specified cells in a game board.
 The `index` parameter is an array that contains the indices of the cells where the image should be displayed horizontally.
 The `imagePath` parameter is a string that represents the path to the image file that you want to load. It should be a valid
@@ -167,7 +164,6 @@ file path that points to the image you want to display */
             cell.appendChild(img);
         }
     }
-
  
 /* The function `showWinImageVertical` loads a vertical image into specified cells.*/
     function showWinImageVertical(index, imagePath) {// load vertical image 
@@ -180,7 +176,6 @@ file path that points to the image you want to display */
             cell.appendChild(img);
         }
     }
-
 
 /* The function `showWinImageDiagonal1` loads a diagonal image onto specific cells in a game board. The `index` parameter is an array that contains the indices of the cells where the
 The `imagePath` parameter is a string that represents the file path or URL of the image that you want to load */
@@ -210,7 +205,6 @@ The `imagePath` parameter is a string that represents the file path or URL of th
         }
     }
 
-
 /* The code is adding an event listener to each cell in the game board. When a cell is clicked, the
 function inside the event listener is executed. This function calls the `updateCell` function,
 passing the index of the clicked cell as an argument, and then calls the `computerMove` function.
@@ -236,7 +230,6 @@ function inside the event listener is executed. */
         computer = getComputerChoice(currentPlayer);
         computerMove();
     });
-
 
 /* The function `computerMove` checks if the game is running and if it is the computer's turn, and
 if so, selects a random cell index and updates the cell after a delay of 300 milliseconds */

@@ -41,32 +41,37 @@ hangmanCard.addEventListener("click", function () {
 
 /* FORM */
 const form = document.getElementById('form');
-const username = document.getElementById('username');
-const email = document.getElementById('email');
+const usernameInput = document.getElementById('username');
+const emailInput = document.getElementById('email');
 const submitBtn = document.getElementById('submitBtn');
 const finalMsg = document.getElementById('finalMsg');
-
-submitBtn.addEventListener("click", function () {
-    const usernameValue = username.value.trim();
-    const emailValue = email.value.trim();
-
-    if (usernameValue === '') {
-        finalMsg.textContent = (username, 'Name is required');
-    } else if (isNaN(usernameValue) === false) {
-        finalMsg.textContent = (username, 'Name cannot be a number');
-    } else {
-        form.style.display = "none";
-        username.style.display = "none";
-        email.style.display = "none";
-        finalMsg.textContent = `Hi ${usernameValue}, thanks for contacting us. We will respond to your email soon.`;
-        form.parentNode.insertBefore(finalMsg, form.nextSibling);
-        // Clear form inputs
-        username.value = '';
-        email.value = '';
-    }
-});
+const failMsg = document.getElementById('failMsg')
 
 const isValidEmail = email => {
     const re = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
     return re.test(email.toLowerCase());
 };
+
+submitBtn.addEventListener("click", function (event) {
+    event.preventDefault(); // Avoid submitting the form and changing the page
+
+    const usernameValue = usernameInput.value.trim();
+    const emailValue = emailInput.value.trim();
+
+    if (usernameValue === '') {
+        failMsg.textContent = 'Name is required';
+    } else if (!isNaN(usernameValue)) {
+        failMsg.textContent =  'Name is not valid';
+    } else if (isValidEmail === '') { 
+        failMsg.textContent = 'e-mail address required';
+    } else {
+        form.style.display = "none";
+        usernameInput.style.display = "none";
+        emailInput.style.display = "none";
+        finalMsg.textContent = `Hi ${usernameValue}, thanks for to contact us. We'll respond soon!!!.`;
+        form.parentNode.insertBefore(finalMsg, form.nextSibling);
+        //Clear form fields
+        usernameInput.value = '';
+        emailInput.value = '';
+    }
+});

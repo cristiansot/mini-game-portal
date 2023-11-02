@@ -160,7 +160,7 @@ li a:hover, .dropdown:hover .dropbtn {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 104vh;
+  height: 94vh;
 }
 
 #grid-container {
@@ -220,19 +220,19 @@ button:hover {
 /* FOOTER */
 form {
   position: absolute;
-  z-index: 3;
+  z-index: 2;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 500px;
+  margin-top: 530px;
 }
 
 .input-control {
   display: flex;
   flex-direction: column;
   width: 200px;
-  margin: 10px;
+  margin: 0;
   border: none;
 }
 
@@ -252,18 +252,32 @@ select {
 
 #submitMsg {
   position: absolute;
-  z-index: 4;
+  z-index: 3;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 #finalMsg {
-  margin-top: 501px;
+  display: flex;
+  justify-content: center;
+  margin-top: 480px;
   position: absolute;
-  z-index: 2;
+  z-index: 4;
   width: 200px;
-  font-size: 23px;
+  font-size: 25px;
+  text-align: center;
+  color:#fcee21;
+}
+
+#failMsg {
+  display: flex;
+  justify-content: center;
+  margin-top: -235px;
+  position: absolute;
+  z-index: 5;
+  width: 300px;
+  font-size: 20px;
   text-align: center;
   color:#fcee21;
 }
@@ -289,7 +303,7 @@ select {
   align-items: center;
   margin-left: -8px;
   max-width: 100%; 
-  height: 130vh; 
+  height: 118vh; 
   margin-top: -680px;
   overflow: hidden; 
 }
@@ -423,9 +437,7 @@ select {
 
 @media screen and (max-width: 768px) {
 
-
   /* LOGGIN HIDDEN */
-
   #loginContainer {
     display: none;
   }
@@ -532,23 +544,27 @@ select {
     margin-top: 24px; 
   }
 
-  .bg-footer {
-      width: 10%;
-  }
-
   #footer-container {
     max-width: 100%; /* Make the footer full width */
-    height: 230vh; /* Make the footer full height */
+    height: 236vh; /* Make the footer full height */
     margin-top: 0px;
   }
 
+  #finalMsg {
+    margin-top: 944px;
+    font-size: 23px;
+  }
+
+  #failMsg {
+    margin-top: -320px;
+  }
+  
   .arcade img {
     width: 144%;
     margin-top: 1000px;
   }
 
   /* FORM */
-
   form {
     margin-top: 950px;
   }

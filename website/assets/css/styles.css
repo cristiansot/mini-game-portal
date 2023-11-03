@@ -247,13 +247,6 @@ form {
   border: none;
 }
 
-/* input {
-  background-color: rgba(255, 255, 255, 0.173);
-  border: 1px solid white;
-  border-radius: 6px;
-  color: white;
-} */
-
 #information {
   color: white;
   border: 1px solid;
@@ -349,6 +342,15 @@ select {
   z-index: 3;
   align-items: center;
   margin-top: -18px;
+}
+
+.coding {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  z-index: 5;
+  color: #fcee21;
+  margin-top: 1206px;
 }
 
 /* BACKGROUND ANIMATION */
@@ -603,6 +605,10 @@ select {
     width: 192px;
   }
 
+  .coding {
+    margin-top: 1503px;
+    font-size: 13px;
+  }
   /* HAMBURGER MENU */
 
   /* I pick up this code from https://codepen.io/alvarotrigo/pen/yLzaPVJ */

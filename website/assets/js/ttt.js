@@ -38,7 +38,6 @@ const playAgainButton = document.getElementById('play-again');
 const winMessage = document.querySelector(".win");
 
 let currentPlayer = ''; // The player hasn't selected a symbol yet
-let computer = ''; // Computer's symbol
 let running = false;
 let options = Array(9).fill(' ');
 
@@ -50,7 +49,6 @@ const winningCombos = [
     [0, 3, 6], [1, 4, 7], [2, 5, 8], // Columns
     [0, 4, 8], [2, 4, 6] // Diagonals
 ];
-
 
 /* The function returns the opposite choice of the player's choice. The player's choice of either 'X' or 'O'.
 'O' if the playerChoice is 'X', and 'X' if the playerChoice is anything other than 'X' */
@@ -99,9 +97,9 @@ function checkWinner() {
             // Rows --> show the position when someone wins and put the image line over the grid
             if (combo.toString() === [0, 1, 2].toString() || combo.toString() === [3, 4, 5].toString() || combo.toString() === [6, 7, 8].toString()) {
                 const winIndex = combo[1]; // Middle cell index for horizontal win
-                    if(combo.toString() === [0, 1, 2].toString()){
+                    if(combo.toString() === [0, 1, 2].toString()) {
                         showWinImageHorizontal([0], "./assets/img/horizontal.png");
-                        winMessage.textContent = "Computer wins the game!";
+                        winMessage.textContent = "You Win!!!";
                     }
                     else if (combo.toString() === [3, 4, 5].toString()){
                         showWinImageHorizontal([3], "./assets/img/horizontal.png");
@@ -154,113 +152,111 @@ function checkWinner() {
 The `index` parameter is an array that contains the indices of the cells where the image should be displayed horizontally.
 The `imagePath` parameter is a string that represents the path to the image file that you want to load. It should be a valid
 file path that points to the image you want to display */
-    function showWinImageHorizontal(index, imagePath) { // load horizontal image 
-        for (const cellIndex of index) {
-            const cell = cells[cellIndex];
-            const img = new Image();
-            img.src = imagePath;
-            img.alt = currentPlayer;
-            img.classList.add("symbol-horizontal");
-            cell.appendChild(img);
-        }
+function showWinImageHorizontal(index, imagePath) { // load horizontal image 
+    for (const cellIndex of index) {
+        const cell = cells[cellIndex];
+        const img = new Image();
+        img.src = imagePath;
+        img.alt = currentPlayer;
+        img.classList.add("symbol-horizontal");
+        cell.appendChild(img);
     }
- 
+}
+
 /* The function `showWinImageVertical` loads a vertical image into specified cells.*/
-    function showWinImageVertical(index, imagePath) {// load vertical image 
-        for (const cellIndex of index) {
-            const cell = cells[cellIndex];
-            const img = new Image();
-            img.src = imagePath;
-            img.alt = currentPlayer;
-            img.classList.add("symbol-vertical");
-            cell.appendChild(img);
-        }
+function showWinImageVertical(index, imagePath) {// load vertical image 
+    for (const cellIndex of index) {
+        const cell = cells[cellIndex];
+        const img = new Image();
+        img.src = imagePath;
+        img.alt = currentPlayer;
+        img.classList.add("symbol-vertical");
+        cell.appendChild(img);
     }
+}
 
 /* The function `showWinImageDiagonal1` loads a diagonal image onto specific cells in a game board. The `index` parameter is an array that contains the indices of the cells where the
 The `imagePath` parameter is a string that represents the file path or URL of the image that you want to load */
-    function showWinImageDiagonal1(index, imagePath) { // load diagonal image 
-        for (const cellIndex of index) {
-            const cell = cells[cellIndex];
-            const img = new Image();
-            img.src = imagePath;
-            img.alt = currentPlayer;
-            img.classList.add("symbol-diagonal1");
-            cell.appendChild(img);
-        }
+function showWinImageDiagonal1(index, imagePath) { // load diagonal image 
+    for (const cellIndex of index) {
+        const cell = cells[cellIndex];
+        const img = new Image();
+        img.src = imagePath;
+        img.alt = currentPlayer;
+        img.classList.add("symbol-diagonal1");
+        cell.appendChild(img);
     }
+}
 
-  
 /* The function `showWinImageDiagonal2` loads a diagonal image onto specific cells in a game board.
 The `index` parameter is an array that contains the indices of the cells where the diagonal image should be displayed.
 The `imagePath` parameter is a string that represents the file path or URL of the image that you want to load */
-    function showWinImageDiagonal2(index, imagePath) { // load diagonal image 
-        for (const cellIndex of index) {
-            const cell = cells[cellIndex];
-            const img = new Image();
-            img.src = imagePath;
-            img.alt = currentPlayer;
-            img.classList.add("symbol-diagonal2");
-            cell.appendChild(img);
-        }
+function showWinImageDiagonal2(index, imagePath) { // load diagonal image 
+    for (const cellIndex of index) {
+        const cell = cells[cellIndex];
+        const img = new Image();
+        img.src = imagePath;
+        img.alt = currentPlayer;
+        img.classList.add("symbol-diagonal2");
+        cell.appendChild(img);
     }
+}
 
 /* The code is adding an event listener to each cell in the game board. When a cell is clicked, the
 function inside the event listener is executed. This function calls the `updateCell` function,
 passing the index of the clicked cell as an argument, and then calls the `computerMove` function.
 This allows the player to make a move by clicking on a cell, and then triggers the computer's
 move. */
-    cells.forEach((cell, index) => {
-        cell.addEventListener('click', function () {
-            updateCell(index);
-            computerMove();
-        });
+cells.forEach((cell, index) => {
+    cell.addEventListener('click', function () {
+        updateCell(index);
+        computerMove();
     });
+});
 
 /* The code is adding an event listener to the "Play Again" button. When the button is clicked, the
 function inside the event listener is executed. */
-    playAgainButton.addEventListener('click', function () {
-        currentPlayer = ''; // Reset the player's choice
-        running = false;
-        options.fill(' ');
-        cells.forEach(cell => cell.textContent = '');
-        winMessage.textContent = "";
-        
-        // Computer starts the game
-        computer = getComputerChoice(currentPlayer);
-        computerMove();
-    });
+playAgainButton.addEventListener('click', function () {
+    currentPlayer = ''; // Reset the player's choice
+    running = false;
+    options.fill(' ');
+    cells.forEach(cell => cell.textContent = '');
+    winMessage.textContent = "";
+    
+    // Computer starts the game
+    computer = getComputerChoice(currentPlayer);
+    computerMove();
+});
+
 
 /* The function `computerMove` checks if the game is running and if it is the computer's turn, and
 if so, selects a random cell index and updates the cell after a delay of 300 milliseconds */
-    function computerMove() {
-        if (running && currentPlayer === 'O' || currentPlayer === 'X') {
-            const cellIndex = getRandomCellIndex();
-            if (cellIndex !== -1) {
-                setTimeout(() => {
-                    updateCell(cellIndex);
-                }, 300); // delay
-            }
+function computerMove() {
+    if (running && currentPlayer === 'O' || currentPlayer === 'X') {
+        const cellIndex = getRandomCellIndex();
+        if (cellIndex !== -1) {
+            setTimeout(() => {
+                updateCell(cellIndex);
+            }, 300); // delay
         }
     }
+}
 
-    // Event listener to select a symbol when clicking on "X" or "O"
-    document.getElementById("symbol-o").addEventListener('click', function () { // If the player select "O", the computer start the game ussing "X"
-        console.log("WORKS")
-        if (!currentPlayer) {
-            currentPlayer = 'X';
-            computer = getComputerChoice('O');
-            running = true;
-            options.fill(' ');
-            cells.forEach(cell => cell.textContent = '');
-            computerMove();
-        }
-    });
+/* Event listener to select a symbol when clicking on "X" or "O" */
+document.getElementById("symbol-o").addEventListener('click', function () { // If the player select "O", the computer start the game ussing "X"
+    if (!currentPlayer) {
+        currentPlayer = 'X';
+        computer = getComputerChoice('O');
+        running = true;
+        options.fill(' ');
+        cells.forEach(cell => cell.textContent = '');
+        computerMove();
+    }
+});
 
-  /* This code is adding an event listener to the element with the id "symbol-x". When this element is
-  clicked, the function inside the event listener is executed. */
+/* This code is adding an event listener to the element with the id "symbol-x". When this element is
+clicked, the function inside the event listener is executed. */
     document.getElementById("symbol-x").addEventListener('click', function () { // If the player select "X", the computer start the game ussing "O"
-        console.log("WORKS")
         if (!currentPlayer) {
             currentPlayer = 'O';
             computer = getComputerChoice('X');
@@ -270,5 +266,4 @@ if so, selects a random cell index and updates the cell after a delay of 300 mil
             computerMove();
         }
     });
-
 });

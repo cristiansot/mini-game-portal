@@ -1,6 +1,6 @@
 /* BODY */
 
-/* Tasneem Help me and teach me how to resolve some problems in mi CSS code */
+/* Tasneem Helps me and teach me how to resolve some problems in mi CSS code */
 
 body {
   z-index: -1;
@@ -247,10 +247,23 @@ form {
   border: none;
 }
 
+/* input {
+  background-color: rgba(255, 255, 255, 0.173);
+  border: 1px solid white;
+  border-radius: 6px;
+  color: white;
+} */
+
+#information {
+  color: white;
+  border: 1px solid;
+}
+
 select {
   display: flex;
   margin: 10px;
   width: 200px;
+  background-color: transparent;
 }
 
 #submitMsg {

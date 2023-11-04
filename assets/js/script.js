@@ -60,12 +60,13 @@ submitBtn.addEventListener("click", function (event) {
     const isEmailValid = re.test(email.toLowerCase());
 
 
+/* The code block is handling form validation and submission. */
     if (usernameValue === '') {
         failMsg.textContent = 'Name is required';
     } else if (!isNaN(usernameValue)) {
         failMsg.textContent =  'Name is not valid';
     } else if (!isEmailValid) { 
-        failMsg.textContent = 'e-mail is not valid';
+        failMsg.textContent = 'E-mail is not valid';
     } else {
         form.style.display = "none";
         usernameInput.style.display = "none";

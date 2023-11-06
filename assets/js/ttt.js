@@ -100,15 +100,12 @@ function checkWinner() {
                 const winIndex = combo[1]; // Middle cell index for horizontal win
                     if(combo.toString() === [0, 1, 2].toString()) {
                         showWinImageHorizontal([0], "./assets/img/horizontal.png");
-                       
                     }
                     else if (combo.toString() === [3, 4, 5].toString()){
                         showWinImageHorizontal([3], "./assets/img/horizontal.png");
-                
                     }
                     else if (combo.toString() === [6, 7, 8].toString()) {
                         showWinImageHorizontal([6], "./assets/img/horizontal.png");
-                 
                     }
 
             // Colums --> show the position when someone wins and put the image line over the grid
@@ -116,15 +113,12 @@ function checkWinner() {
                 const winIndex = combo[1]; // Middle cell index for vertical win
                     if (combo.toString() === [0, 3, 6].toString()) {
                         showWinImageVertical([0], "./assets/img/vertical.png");
-                      
                     }
                     else if (combo.toString() === [1, 4, 7].toString()) {
                         showWinImageVertical([1], "./assets/img/vertical.png");
-            
                     }
                     else if (combo.toString() === [2, 5, 8].toString()) {
                         showWinImageVertical([2], "./assets/img/vertical.png");
-          
                     }
         
             // Diagonals --> show the position when someone wins and put the image line over the grid
@@ -134,9 +128,7 @@ function checkWinner() {
             // Diagonals --> show the position when someone wins and put the image line over the grid
             } else if (combo.toString() === [2, 4, 6].toString()) {
                 showWinImageDiagonal2([0], "./assets/img/diagonal2.png");
-      
             }
-     
             return ;
         }
     }

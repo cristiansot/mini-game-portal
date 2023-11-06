@@ -52,96 +52,96 @@ document.addEventListener("DOMContentLoaded", function () {
     let currentRound = 0; 
 
 /* This code Hidden "Play Again" button when start the match */
-    playAgainButton.style.display = "none";
+playAgainButton.style.display = "none";
 
-    function updateRoundDisplay() { // 
-        currentRound++;
-        roundsPlayers.textContent = `Round ${currentRound}`;
-        if (currentRound === 1) {
-            roundsPlayers.style.display = "block"; // Muestra el display de las rondas en la segunda pantalla
-        }
+function updateRoundDisplay() { // 
+    currentRound++;
+    roundsPlayers.textContent = `Round ${currentRound}`;
+    if (currentRound === 1) {
+        roundsPlayers.style.display = "block"; // Muestra el display de las rondas en la segunda pantalla
     }
+}
 
 /* The code block is adding a click event listener to each button in the `buttons` array. When a button
 is clicked, the function inside the event listener is executed. */
-    buttons.forEach((button) => {
-        button.addEventListener("click", function () {
-            if (roundsLeft > 0) {
-                updateRoundDisplay();
-                playAgainButton.style.display = "none";
-                const userChoice = button.querySelector("img").alt;
-                const computerChoice = getComputerChoice();
-                const winner = determineWinner(userChoice, computerChoice);
+buttons.forEach((button) => {
+    button.addEventListener("click", function () {
+        if (roundsLeft > 0) {
+            updateRoundDisplay();
+            playAgainButton.style.display = "none";
+            const userChoice = button.querySelector("img").alt;
+            const computerChoice = getComputerChoice();
+            const winner = determineWinner(userChoice, computerChoice);
 
-                humanDiv.innerHTML = `<img src="./assets/img/${userChoice}-left.svg" alt="${userChoice}">`;
-                computerDiv.innerHTML = `<img src="./assets/img/${computerChoice}-right.svg" alt="${computerChoice}">`;
+            humanDiv.innerHTML = `<img src="./assets/img/${userChoice}-left.svg" alt="${userChoice}">`;
+            computerDiv.innerHTML = `<img src="./assets/img/${computerChoice}-right.svg" alt="${computerChoice}">`;
 
-                if (winner === "Player") {
-                    userScore++;
-                } else if (winner === "Computer") {
-                    computerScoreValue++;
-                }
-
-                playerScore.textContent = userScore;
-                computerScore.textContent = computerScoreValue;
-                roundsLeft--;
-
-                if (roundsLeft === 0) {
-                    endGame();
-                }
+            if (winner === "Player") {
+                userScore++;
+            } else if (winner === "Computer") {
+                computerScoreValue++;
             }
-        });
-    });
 
-  /* The code is adding an event listener to the `playAgainButton` element. When the button is clicked,
-  the function inside the event listener (`resetGame()`) is executed. This function is responsible
-  for resetting the game by resetting the variables and elements to their initial values. */
-    playAgainButton.addEventListener("click", function () { // restart Play again button 
-        resetGame();
+            playerScore.textContent = userScore;
+            computerScore.textContent = computerScoreValue;
+            roundsLeft--;
+
+            if (roundsLeft === 0) {
+                endGame();
+            }
+        }
     });
+});
+
+/* The code is adding an event listener to the `playAgainButton` element. When the button is clicked,
+the function inside the event listener (`resetGame()`) is executed. This function is responsible
+for resetting the game by resetting the variables and elements to their initial values. */
+    playAgainButton.addEventListener("click", function () { // restart Play again button 
+    resetGame();
+});
 
 /* The computer choose a random number */
-    function getComputerChoice() { // Random computer choice
-        const choices = ["rock", "paper", "scissors"];
-        const randomIndex = Math.floor(Math.random() * choices.length);
-        return choices[randomIndex];
-    }
+function getComputerChoice() { // Random computer choice
+    const choices = ["rock", "paper", "scissors"];
+    const randomIndex = Math.floor(Math.random() * choices.length);
+    return choices[randomIndex];
+}
 
 
 /* The function determines the winner between a player and a computer based on their choices of rock,
  paper, or scissors. */
-    function determineWinner(playerChoice, computerChoice) { // Winer function 
-        if (playerChoice === computerChoice) {
-            return "Tie";
-        } else if (
-            (playerChoice === "rock" && computerChoice === "scissors") || 
-            (playerChoice === "paper" && computerChoice === "rock") || 
-            (playerChoice === "scissors" && computerChoice === "paper")
-        ) {
-            return "Player";
-        } else {
-            return "Computer";
-        }
+function determineWinner(playerChoice, computerChoice) { // Winer function 
+    if (playerChoice === computerChoice) {
+        return "Tie";
+    } else if (
+        (playerChoice === "rock" && computerChoice === "scissors") || 
+        (playerChoice === "paper" && computerChoice === "rock") || 
+        (playerChoice === "scissors" && computerChoice === "paper")
+    ) {
+        return "Player";
+    } else {
+        return "Computer";
     }
+}
 
 /* The function "endGame" determines the winner of the game and displays a corresponding message, hides
 the images of the human and computer choices, and shows a "Play Again" button */
-    function endGame() { // Hidden images
-        if (userScore > computerScoreValue) {
-            winMessage.textContent = "Player wins the game!";
-            humanDiv.style.display = "none";
-            computerDiv.style.display = "none"; 
-        } else if (userScore < computerScoreValue) {
-            winMessage.textContent = "Computer wins the game!";
-            humanDiv.style.display = "none"; 
-            computerDiv.style.display = "none"; 
-        } else {
-            winMessage.textContent = "It's a tie!";
-            humanDiv.style.display = "none"; 
-            computerDiv.style.display = "none"; 
-        }
-        playAgainButton.style.display = "block"; // Show "Play Again" button when finish the game 
+function endGame() { // Hidden images
+    if (userScore > computerScoreValue) {
+        winMessage.textContent = "Player wins the game!";
+        humanDiv.style.display = "none";
+        computerDiv.style.display = "none"; 
+    } else if (userScore < computerScoreValue) {
+        winMessage.textContent = "Computer wins the game!";
+        humanDiv.style.display = "none"; 
+        computerDiv.style.display = "none"; 
+    } else {
+        winMessage.textContent = "It's a tie!";
+        humanDiv.style.display = "none"; 
+        computerDiv.style.display = "none"; 
     }
+    playAgainButton.style.display = "block"; // Show "Play Again" button when finish the game 
+}
 
 /* This funtion reset the game and clear the screen*/
     function resetGame() {

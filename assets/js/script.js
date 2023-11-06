@@ -54,10 +54,10 @@ submitBtn.addEventListener("click", function (event) {
     event.preventDefault(); // Avoid submitting the form and changing the page
 
 /* The code block is handling form validation and submission. ---> Aleem help me a lot for develop this code */
-    const usernameValue = usernameInput.value.trim();
-    const email = emailInput.value.trim();
-    const re = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-    const isEmailValid = re.test(email.toLowerCase());
+const usernameValue = usernameInput.value.trim();
+const email = emailInput.value.trim();
+const re = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+const isEmailValid = re.test(email.toLowerCase());
 
 
 /* The code block is handling form validation and submission. */
